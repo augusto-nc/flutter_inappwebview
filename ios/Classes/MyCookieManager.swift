@@ -248,11 +248,9 @@ public class MyCookieManager: ChannelDelegate {
                     originURL = (cookie.properties![.originURL] as! URL).absoluteString
                 }
                 if domain == nil, let domainUrl = URL(string: originURL) {
-                    if #available(iOS 16.0, *) {
-                        domain = domainUrl.host()
-                    } else {
+                  
                         domain = domainUrl.host
-                    }
+                    
                 }
                 if let domain = domain, cookie.domain == domain, cookie.name == name, cookie.path == path {
                     httpCookieStore.delete(cookie, completionHandler: {
@@ -282,11 +280,9 @@ public class MyCookieManager: ChannelDelegate {
                     originURL = (cookie.properties![.originURL] as! URL).absoluteString
                 }
                 if domain == nil, let domainUrl = URL(string: originURL) {
-                    if #available(iOS 16.0, *) {
-                        domain = domainUrl.host()
-                    } else {
+                  
                         domain = domainUrl.host
-                    }
+                    
                 }
                 if let domain = domain, cookie.domain == domain, cookie.path == path {
                     httpCookieStore.delete(cookie, completionHandler: nil)
